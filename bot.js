@@ -1,7 +1,7 @@
 const puppeteer = require('puppeteer')
 
 async function bot() {
-    const browser = await puppeteer.launch({ headless: false })
+    const browser = await puppeteer.launch({ headless: true })
     const page = await browser.newPage()
     await page.goto('https://reds-shnack.herokuapp.com/', { waitUntil: 'load', timeout: 0 })
 
@@ -15,6 +15,8 @@ async function bot() {
 
         const btn = await page.$('button[id="submit"]')
         await btn.click()
+
+        console.log('code raan!')
     }, 2000);
 
 }
